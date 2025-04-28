@@ -1,0 +1,14 @@
+{
+  "name": "devntinder-backend",
+  "version": "1.0.0",
+  "description": "It is devtinder backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

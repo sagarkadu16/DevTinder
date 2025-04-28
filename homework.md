@@ -1,0 +1,7 @@
+- Creat a repo
+- Initialise the repo
+- node_modules, package.json, package-lock.json
+- Install express
+- Create a server
+- Listen to any port
+- Make any request handler
