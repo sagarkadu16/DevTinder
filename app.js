@@ -2,16 +2,25 @@ const express = require('express');
 
 const app = express();
 
-app.use('/fff', (req,res) => {
-    res.send('Namaste Sagar adf !');
+app.get('/user', (req,res) => {
+    res.send({
+        name: 'Sagar',
+        surname: 'Kadu'
+    })
 });
 
-app.use('/hello', (req,res) => {
-    res.send('Namaste Sagar adf !');
+app.post('/user', (req,res) => {
+    // save data to database
+    res.send('Data successfully saved to database!');
 });
 
+app.delete('/user', (req,res) => {
+    res.send('User Deleted Successfully!');
+});
 
-
+app.use('/user', (req,res) => {
+    res.send('Hijackeddd!')
+});
 
 app.listen(7777, () => {
     console.log('Server created successfully.. !');
