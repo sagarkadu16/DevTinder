@@ -2,6 +2,14 @@ const express = require('express');
 
 const app = express();
 
+// advanced routing -- use regex, ?, +, (), *
+// req.query -- query params
+// req.params -- dynamic routes
+
+app.get('/us*er', (req,res) => {
+    res.send('success');
+});
+
 app.get('/user', (req,res) => {
     res.send({
         name: 'Sagar',
