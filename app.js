@@ -1,33 +1,28 @@
 const express = require('express');
+const { adminAuth, userAuth } = require('./Middlewares/auth');
 
 const app = express();
+
+
 
 // advanced routing -- use regex, ?, +, (), *
 // req.query -- query params
 // req.params -- dynamic routes
 
-app.get('/us*er', (req,res) => {
-    res.send('success');
+// 500: comes when something breaks
+
+app.use('/admin', adminAuth);
+
+app.post('/user', userAuth, (req,res,next) => {
+    res.send('user data')
 });
 
-app.get('/user', (req,res) => {
-    res.send({
-        name: 'Sagar',
-        surname: 'Kadu'
-    })
+app.get('/admin/getAllData', (req,res,next) => {
+    res.send('All User Data');
 });
 
-app.post('/user', (req,res) => {
-    // save data to database
-    res.send('Data successfully saved to database!');
-});
-
-app.delete('/user', (req,res) => {
-    res.send('User Deleted Successfully!');
-});
-
-app.use('/user', (req,res) => {
-    res.send('Hijackeddd!')
+app.get('/admin/deleteUser', (req,res,next) => {
+    res.send('User Deleted');
 });
 
 app.listen(7777, () => {
